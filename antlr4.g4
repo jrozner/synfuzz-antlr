@@ -92,9 +92,9 @@ CHANNEL: 'channel';
 MULTILINE_COMMENT: '/*' .*? '*/' -> skip;
 SINGLELINE_COMMENT: '//' ~[\r\n]* -> skip;
 
-CHARACTER_CLASS: '[' ~']'* ']';
+CHARACTER_CLASS: '[' ('\\]' | ~']')* ']';
 
-STRING_LITERAL: '\'' ~[']* '\'';
+STRING_LITERAL: '\'' ('\\\'' | ~['])* '\'';
 
 LOWER_ID: [a-z][a-zA-Z0-9_]*;
 UPPER_ID: [A-Z][a-zA-Z0-9_]*;
